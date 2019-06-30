@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <description>Proyecto Generico GXT 2</description>
+    <display-name>Generico GXT</display-name>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener> 
+    
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>    
+    <servlet>
+        <servlet-name>springrpc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>-1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>springrpc</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+    <!-- Dispacher de servicios REST -->
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+    
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    
+    <!--login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>Monitoring</realm-name>
+    </login-config>
+    <security-role>
+        <role-name>monitoring</role-name>
+    </security-role>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Monitoring</web-resource-name>
+            <url-pattern>/monitoring</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>monitoring</role-name>
+        </auth-constraint>
+        <  if SSL enabled (SSL and certificate must then be configured in the server)
+          <user-data-constraint>
+        <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+        > 
+    </security-constraint-->
+</web-app>

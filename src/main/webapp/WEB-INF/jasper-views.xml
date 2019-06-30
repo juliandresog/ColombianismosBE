@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- 
+		Declare Spring's View Resolvers for Jasper
+		
+		Based on the bean names we can infer that:
+			* pdfReport is for generating PDFs
+			* xlsReport is for Excel format reports
+			* htmlReport is for HTML reports
+			* csvReport is for CSV reports
+                        
+                        //attachment o inline
+	-->
+	<!-- 
+		id: the name to be used as a reference in the controller
+		url: the path where the Jasper JRXML file is located
+		reportDateKey: the name of the datasource. This is passed by the controller
+	-->      
+        <!-- Reporte de moviles sin reportar -->
+       	<!--bean id="pdfReporteMio"
+	   class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView"
+		p:url="classpath:reportes/reporteDemo.jrxml"
+		p:reportDataKey="datasource" >
+                    <property name="headers">
+                        <props>
+                            <prop key="Content-Disposition">
+                                attachment; filename=reporteMio.pdf
+                            </prop>
+                        </props>
+                    </property>
+        </bean>
+                
+        <bean id="xlsReporteMio"
+	   class="org.springframework.web.servlet.view.jasperreports.JasperReportsXlsView"
+		p:url="classpath:reportes/reporteDemo.jrxml"
+		p:reportDataKey="datasource" >
+                    <property name="headers">
+                        <props>
+                            <prop key="Content-Disposition">
+                                attachment; filename=reporteMio.xls
+                            </prop>
+                        </props>
+                    </property>
+        </bean-->
+        
+        
+                
+	 
+</beans>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+       http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <!-- Scan por los DAO -->
+    <context:component-scan base-package="net.joarchitectus.server.datos.dao"/>
+    
+    <!-- Scan por los Servicios -->
+    <context:component-scan base-package="net.joarchitectus.server.servicios"/>
+    
+    <!-- ############ Inicio Hibernate ############ -->
+
+    <!-- DATASOURCE DECLARATION -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> <!-- p:validationQuery="select 1" p:testOnBorrow="true"> -->
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="maxActive" value="${jdbc.maxActive}" />
+        <property name="maxIdle" value="${jdbc.maxIdle}" />
+    </bean>
+
+    <!-- HIBERNATE SESSION FACTORY -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.generate_statistics">${hibernate.generate_statistics}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <!--prop key="hibernate.cache.use_query_cache">${hibernate.use_query_cache}</prop-->
+                <!--prop key="hibernate.jdbc.factory_class">net.bull.javamelody.HibernateBatcherFactory</prop-->
+                <!--prop key="hibernate.multiTenancy">SCHEMA</prop>
+                <prop key="hibernate.tenant_identifier_resolver">co.com.boos.server.datos.tenant.CurrentTenantIdentifierResolverImpl</prop>
+                <prop key="hibernate.multi_tenant_connection_provider">co.com.boos.server.datos.tenant.MultiTenantConnectionProviderImpl</prop-->
+            </props>
+        </property>
+        <property name="packagesToScan">
+            <list>
+                <value>net.joarchitectus.client.datos.dominio</value>
+            </list>
+        </property>
+        <property name="annotatedClasses">
+            <list>                
+                <!--value>net.joarchitectus.client.datos.dominio.Rol</value>                
+                <value>net.joarchitectus.client.datos.dominio.Usuarios</value>
+                <value>net.joarchitectus.client.datos.dominio.Empresa</value>
+                <value>net.joarchitectus.client.datos.dominio.Parqueadero</value>
+                <value>net.joarchitectus.client.datos.dominio.Pais</value>
+                <value>net.joarchitectus.client.datos.dominio.CalificacionCliente</value-->
+            </list>
+        </property>
+        <property name="annotatedPackages">
+            <list>
+                <!--value>net.joarchitectus.client.datos.dominio</value-->
+            </list>
+        </property>
+        <!--property name="eventListeners">
+            <map>
+                <entry key="merge">
+                    <bean class="org.springframework.orm.hibernate3.support.IdTransferringMergeEventListener"/>
+                </entry>
+            </map>
+        </property-->
+    </bean>
+    
+    <bean id="auditLogInterceptor"  class="net.joarchitectus.server.datos.dao.AuditInterceptor" />
+
+    <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+          p:sessionFactory-ref="sessionFactory" p:entityInterceptor-ref="auditLogInterceptor"/>
+
+    <!-- ############ Fin Hibernate ############ -->
+
+    <!-- ############ Inicio Configuración mail ############ -->
+    <bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage" />
+
+    <!-- Configuracion Para el envio de correos -->
+    <bean id="emisorCorreos" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${smtp.servidor}"/>
+        <property name="port" value="${smtp.puerto}"/>
+        <property name="username" value="${smtp.usuario}"/>
+        <property name="password" value="${smtp.clave}"/>
+        <property name="javaMailProperties">
+            <props>
+                <!-- Use SMTP-AUTH to authenticate to SMTP server -->
+                <prop key="mail.smtp.auth">${smtp.autenticar}</prop>
+                <!-- Use TLS to encrypt communication with SMTP server -->
+                <prop key="mail.smtp.starttls.enable">${smtp.tls}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- ############ Fin Configuración mail ############ -->
+
+    <context:annotation-config />
+
+    <tx:annotation-driven/>
+
+    <aop:aspectj-autoproxy/>    
+
+    <!-- Usuario de sessión (se construye al loguearse) -->
+    <bean id="usuario" class="net.joarchitectus.client.datos.dominio.Usuarios" scope="session">
+        <aop:scoped-proxy/>
+    </bean>
+    
+
+   
+    <bean class="net.joarchitectus.server.servicios.local.ServicioCorreosImpl">
+        <property name="emisorCorreos" ref="emisorCorreos"/>
+        <property name="mailMessage" ref="mailMessage"/>
+        <property name="remitente" value="${smtp.remitente}"/>
+        <property name="urlLogo" value="${smtp.urllogo}"/>
+    </bean>
+    
+    <bean class="net.joarchitectus.server.servicios.local.ServicioSMSImpl">
+        <property name="urlBase" value="${http.sms.url.base}"/>
+        <property name="paramUsuarioNombre" value="${http.sms.param.usuario.nombre}"/>
+        <property name="paramUsuarioValor" value="${http.sms.param.usuario.valor}"/>
+        <property name="paramClaveNombre" value="${http.sms.param.clave.nombre}"/>
+        <property name="paramClaveValor" value="${http.sms.param.clave.valor}"/>
+        <property name="paramDeNombre" value="${http.sms.param.de.nombre}"/>
+        <property name="paramParaNombre" value="${http.sms.param.para.nombre}"/>
+        <property name="prefijo" value="${http.sms.prefijo}"/>
+        <property name="paramMensajeNombre" value="${http.sms.param.mensaje.nombre}"/>
+        <property name="remitente" value="${http.sms.remitente}"/>
+    </bean>
+    
+     
+    
+    
+    
+</beans>

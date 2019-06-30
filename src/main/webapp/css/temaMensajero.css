@@ -1,0 +1,908 @@
+/* 
+    Document   : temacliente
+    Created on : 10/09/2013, 10:02:53 PM
+    Author     : josorio
+    Description:
+*/
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:Light);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:Bold);
+
+@media screen
+{
+    body
+    {
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    
+    .panelTituloMain{ 
+
+        background: rgb(124,112,170); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(124,112,170,1) 0%, rgba(85,68,136,1) 47%, rgba(85,68,136,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(124,112,170,1)), color-stop(47%,rgba(85,68,136,1)), color-stop(100%,rgba(85,68,136,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(124,112,170,1) 0%,rgba(85,68,136,1) 47%,rgba(85,68,136,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(124,112,170,1) 0%,rgba(85,68,136,1) 47%,rgba(85,68,136,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(124,112,170,1) 0%,rgba(85,68,136,1) 47%,rgba(85,68,136,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom, rgba(124,112,170,1) 0%,rgba(85,68,136,1) 47%,rgba(85,68,136,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7c70aa', endColorstr='#554488',GradientType=0 ); /* IE6-9 */
+    }
+    
+    .gris.x-item-disabled{
+        color: #808080!important;
+        background-color: #EDEDED!important;
+        opacity: 0.9!important;
+    }
+    
+    .x-panel-header {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 13pt;
+    }
+    
+    .x-tab-strip span.x-tab-strip-text {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 13pt;
+    }
+    
+    .x-btn button {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 12pt;
+        font-weight: 300;
+    }
+    
+    .x-date-picker .x-btn button, .x-toolbar-cell .x-btn button {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 10pt;
+        font-weight: 300;
+    }
+    
+    .elLogin
+    {
+        /*background:url("../imagenes/backAplicativo.jpg");*/
+        background:url("../imagenes/mensajero/eme_fondo.png");
+        background-color: #ffffff;
+        background-repeat: repeat-x;
+        background-position: bottom center;
+        
+    }
+    
+    .elLogin .panel-form-login{
+        border-radius: 5px
+    }
+    
+    .x-tab-hide > .x-tab-panel-header > .x-tab-strip-wrap {
+        display: none;
+    }
+    
+    .x-tab-panel-body {
+        border-color: rgb(208, 208, 208);
+        background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.1);
+    }
+    
+    .login-container .x-panel-body-noheader{
+        border-width: 0px;
+    }
+    
+    .login-container .x-tab-panel-header-plain .x-tab-strip-spacer {
+        border: 0px solid;
+        height: 2px;
+        font-size: 1px;
+        line-height: 1px;
+        background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.1);
+    }
+    
+    .panelInformativo {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 14pt;
+        font-weight: 200;
+        color: #666666;
+        text-align: justify;
+        opacity: 0.95;
+        filter: alpha(opacity=95); /* For IE8 and earlier */
+        padding: 5px;
+        margin: 0px 0px 10px;
+    }
+    
+    .panelInformativo table
+    {
+        color: #666666;
+        text-align: justify; 
+        font-weight: 300;
+    }
+    
+    .x-form-field-wrap input {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 13pt;
+        height: 30px; background:#fff; display:block; 
+        width: 100% !important; 
+        box-sizing: border-box 
+    }
+    
+    .x-form-file-wrap input{
+        width: 222px !important;
+    }
+    
+    .x-form-field-wrap textarea, .x-form-check-wrap .x-form-cb-label{
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 13pt;
+    }
+    
+    .x-form-check-wrap .x-form-cb-label{
+        font-size: 12pt;
+    }
+    
+    .x-combo-list-item{
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 11pt;
+    }
+        
+    .field-trigger-boos input {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 13pt;
+        height: 30px; background:#fff; display:block; 
+        width: 100% !important; 
+        box-sizing: border-box 
+    }
+    .field-trigger-boos img, .x-form-field-wrap img { 
+        position: absolute; top: 2px; 
+        right: 5px !important
+    }
+    
+    .x-form-field-wrap .x-form-trigger, .x-form-field-wrap .x-form-trigger-over, .x-trigger-wrap-focus .x-form-trigger {
+        width: 26px;
+        height: 26px;
+        background: url("../imagenes/mensajero/eme_ico_combo.png")  no-repeat scroll -0px -0px transparent;
+        border-bottom-width: 0px;
+        background-size: cover;
+    }
+    
+    .x-form-field-wrap .x-form-date-trigger {
+        background: url("../imagenes/mensajero/eme_calendar.png")  no-repeat scroll -0px -0px transparent;
+        background-size: cover;
+    }
+    
+    .field-trigger-boos .x-form-trigger {
+        width: 26px;
+        height: 26px;
+        border-bottom-color: rgb(255, 255, 255);
+    }
+    
+    .x-trigger-wrap-focus .x-form-trigger {
+        border-bottom-color: rgb(255, 255, 255);
+    }    
+    
+    
+    .field-trigger-boos .x-form-trigger {
+        background-image: url("../imagenes/mensajero/eme_ico_menu_datos_on.png");
+        background-size: cover;
+    }
+    
+    .iconform-usuario .x-form-trigger {
+        background-image: url("../imagenes/mensajero/eme_ico_loguin_usuario.png");
+        background-size: cover;
+    }
+    
+    .iconform-password .x-form-trigger {
+        background-image: url("../imagenes/mensajero/eme_ico_loguin_contrasena.png"); 
+        background-size: cover;
+    }
+    
+    .x-panel {
+        border-style: none;
+        border-width: 0;
+        outline: 0 none;
+        background-color: rgba(255, 255, 255, 0.1); /* Color white with alpha 0.9*/   
+        /*Padded for readability, you can write the following at one line:*/
+        filter: progid:DXImageTransform.Microsoft.Gradient(
+            GradientType=1,
+            startColorStr="#E6FFFFFF",
+            endColorStr="#E6FFFFFF");
+    }
+    
+    /*.x-border-panel {
+        background-image: none;
+        background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.2);
+        
+        filter: progid:DXImageTransform.Microsoft.Gradient(
+            GradientType=1,
+            startColorStr="#E6FFFFFF",
+            endColorStr="#E6FFFFFF");
+    }*/
+    
+    .x-panel-body, .x-grid-panel, .x-grid3 {
+        background-color: rgba(255, 255, 255, 0.1); /* Color white with alpha 0.9*/    
+        /*Padded for readability, you can write the following at one line:*/
+        filter: progid:DXImageTransform.Microsoft.Gradient(
+            GradientType=1,
+            startColorStr="#E6FFFFFF",
+            endColorStr="#E6FFFFFF");
+    }
+    
+    .x-grid3-hd-row .x-grid3-hd, .x-grid3-row .x-grid3-cell, .x-grid3-summary-row .x-grid3-cell {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 10pt;
+    }
+    
+    .x-panel-bl {
+        background-image: none;
+        background-color: rgba(255, 255, 255, 0.1); /* Color white with alpha 0.9*/    
+        /*Padded for readability, you can write the following at one line:*/
+        filter: progid:DXImageTransform.Microsoft.Gradient(
+            GradientType=1,
+            startColorStr="#E6FFFFFF",
+            endColorStr="#E6FFFFFF");
+    }
+    
+    .x-panel-ml {
+        background-image: none;
+        background-color: rgba(255, 255, 255, 0.1); /* Color white with alpha 0.9*/    
+        /*Padded for readability, you can write the following at one line:*/
+        filter: progid:DXImageTransform.Microsoft.Gradient(
+            GradientType=1,
+            startColorStr="#E6FFFFFF",
+            endColorStr="#E6FFFFFF");
+    }
+    
+    
+
+    /*.x-panel-header {
+        background-image: none;
+        border: 1px solid #D0D0D0;
+        color: #FFFFFF;
+        background-color: #003770;
+    }*/
+
+    .x-panel-tl {
+        background-image: none;
+        /*border-color: #D0D0D0;*/
+        border-width: 0;
+        background: transparent no-repeat 0 0;
+    }
+    
+    
+        
+    .login-container .x-tab-panel-body {
+        border: 0px solid;
+    }
+    
+    .formRegistro .x-panel-bwrap{
+        border: 1px solid;
+        border-color: #ECECEC;
+        border-top: 0px none;
+    }
+    
+    .formLogin .x-panel-bwrap{
+        border: 1px solid;
+        border-color: #ECECEC;
+        border-top: 0px none;
+    }
+
+    .x-panel-tr {
+        background-image: none;
+        background: transparent no-repeat 0 0;
+    }
+
+
+    .x-panel-tc {
+        background-image: none;        
+        background: transparent no-repeat 0 0;
+    }
+    
+    .x-panel-tr, .x-panel-tl, .x-panel-tc {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 12pt;
+        background-color:#818181;
+    }
+
+    .x-panel-tl .x-panel-header {
+        color: #FFFFFF;
+        /*font-weight: bold;*/
+        font-size: 14pt;
+        font-weight: normal;
+    }
+    
+    .x-panel-tl .x-panel-header {
+        line-height: 20px;
+    }
+    
+    .x-panel-header .x-tool-help{
+         background: url("../imagenes/mensajero/eme_ico_barra_superior_info_off.png") no-repeat scroll -0px -0px transparent; 
+         background-size: 15px 15px;
+    }
+    
+    .x-panel-header .x-tool-help-over{
+         background: url("../imagenes/mensajero/eme_ico_barra_superior_info_over.png") no-repeat scroll -0px -0px transparent; 
+         background-size: 15px 15px;
+    }
+
+
+    .x-panel-mc {
+        /*background: none repeat scroll 0 0 #FFFFFF;*/
+        background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.1);
+    }    
+
+    .x-panel-bl {
+        background-image: none;      
+        background: transparent no-repeat 0 0;
+    }
+
+    .x-panel-br {
+        background-image: none;   
+        background: transparent no-repeat 0 0;
+    }
+
+    /*.x-panel-ml {
+        background-image: none;   
+        background: transparent no-repeat 0 0;
+    }*/
+
+    .x-panel-mr {
+        background-image: none;  
+        background: transparent no-repeat 0 0;
+    }
+
+    .x-panel-bc {
+        background-image: none; 
+        background: transparent no-repeat 0 0;
+    }
+    
+    .formLogin .x-panel-tr, .formLogin .x-panel-tc, .formRegistro .x-panel-tr, .formRegistro .x-panel-tc{
+        background: transparent no-repeat 0 0;
+    }
+    
+    .formLogin .x-panel-tl{
+        background: transparent no-repeat 0 0;
+        background-image: url("../imagenes/mensajero/eme_fondo_ingresar.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .formRegistro .x-panel-tl{
+        background: transparent no-repeat 0 0;
+        background-image: url("../imagenes/mensajero/eme_fondo_registro.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .x-tab-panel-header-plain .x-tab-strip-top {
+
+    }
+
+    .x-tab-strip-top .x-tab-right {
+        background-image: none;     
+        background-color: #E7E7E7;
+    }
+    .x-tab-strip-top .x-tab-left {
+        background-image: none;   
+        background-color: #E7E7E7;
+    }
+    .x-tab-strip-top .x-tab-strip-inner {
+        background-image: none;   
+        background-color: #E7E7E7;
+    }
+
+    .x-tab-strip-top .x-tab-strip-over .x-tab-right {
+        background-color: #E9F1F5;
+    }
+    .x-tab-strip-top .x-tab-strip-over .x-tab-left {
+        background-color: #E9F1F5;
+    }
+    .x-tab-strip-top .x-tab-strip-over .x-tab-strip-inner {
+        background-color: #E9F1F5;
+    }
+    .x-tab-strip-top .x-tab-strip-active .x-tab-right {        
+        background-color: #F9F9F9;
+        border-top-style: solid;
+        border-top-color: #D0D0D0;
+        border-top-width: 1px;
+    }
+    .x-tab-strip-top .x-tab-strip-active .x-tab-left {
+        background-color: #F9F9F9;
+    }
+    .x-tab-strip-top .x-tab-strip-active .x-tab-strip-inner {
+        background-color: #F9F9F9;
+    }
+
+
+    .x-btn-tl, .x-btn-tr, .x-btn-tc, .x-btn-ml, .x-btn-mr, .x-btn-mc, .x-btn-bl, .x-btn-br, .x-btn-bc {
+        background-image: none;   
+    }
+    
+    .x-form-file-wrap .x-form-file-btn{
+        z-index: 1;
+        height: 29px;
+    }
+    
+    .x-form-file-wrap .x-form-file-btn .x-btn-text{
+        height: 23px;
+    }
+    
+    .x-form-file-wrap .x-btn-tl, .x-form-file-wrap .x-btn-tr, .x-form-file-wrap .x-btn-tc, 
+    .x-form-file-wrap .x-btn-ml, .x-form-file-wrap .x-btn-mr, .x-form-file-wrap .x-btn-mc,
+    .x-form-file-wrap .x-btn-bl, .x-form-file-wrap .x-btn-br, .x-form-file-wrap .x-btn-bc {
+        background-image: url("../resources/images/default/button/btn.gif");
+    }
+    
+    .x-btn-small{
+    }
+
+    .x-window-bl .x-btn-small{
+        background-color: #F15F31;
+        color: #FFFFFF;        
+        border-color: #ffe300;  
+    }
+    
+    .x-window-bl .x-btn-small button {
+        color: #FFFFFF;   
+        font-weight: bold;
+    }
+    
+    .naranja .x-btn-small{
+        background-color: #F15F31;
+        color: #FFFFFF;        
+        border-color: #ffe300;        
+    }
+    
+    .x-item-disabled * {
+        color: #808080!important;
+    }
+    
+    .x-item-disabled .x-form-field {
+        color: #8793b6!important;
+    }
+    
+    .x-item-disabled .x-form-cb-label {
+        color: #8793b6!important;
+    }
+    
+    .naranja.x-item-disabled{
+        color: #FFFFFF!important;
+        background-color: #FBAE16!important;
+        opacity: 0.9!important;
+    }
+
+    .azul .x-btn-small{
+        background-color: #003770;
+        color: #FFFFFF;        
+        border-color: #003722;
+    }
+    
+    .naranja .x-btn-tl, .naranja .x-btn-tr, .naranja .x-btn-tc, .naranja .x-btn-ml, .naranja .x-btn-mr, .naranja .x-btn-mc, .naranja .x-btn-bl, .naranja .x-btn-br, .naranja .x-btn-bc {
+       background-color: #F15F31;
+       color: #FFFFFF;    
+    }
+    
+    .naranja.x-btn-over .x-btn-tl, .naranja.x-btn-over .x-btn-tr, .naranja.x-btn-over .x-btn-tc, .naranja.x-btn-over .x-btn-ml, .naranja.x-btn-over .x-btn-mr, .naranja.x-btn-over .x-btn-mc, .naranja.x-btn-over .x-btn-bl, .naranja.x-btn-over .x-btn-br, .naranja.x-btn-over .x-btn-bc {
+       background-color: #E5390B;
+       color: #FFFFFF;    
+    }
+    
+    .azul .x-btn-tl, .azul  .x-btn-tr, .azul .x-btn-tc, .azul .x-btn-ml, .azul .x-btn-mr, .azul .x-btn-mc, .azul .x-btn-bl, .azul .x-btn-br, .azul .x-btn-bc {
+        background-color: #003770;
+        color: #FFFFFF; 
+    }
+    
+    .azul.x-btn-over .x-btn-tl, .azul.x-btn-over  .x-btn-tr, .azul.x-btn-over .x-btn-tc, .azul.x-btn-over .x-btn-ml, .azul.x-btn-over .x-btn-mr, .azul.x-btn-over .x-btn-mc, .azul.x-btn-over .x-btn-bl, .azul.x-btn-over .x-btn-br, .azul.x-btn-over .x-btn-bc {
+        background-color: #092e53;
+        color: #FFFFFF; 
+    }
+    
+    .gris .x-btn-tl, .gris  .x-btn-tr, .gris .x-btn-tc, .gris .x-btn-ml, .gris .x-btn-mr, .gris .x-btn-mc, .gris .x-btn-bl, .gris .x-btn-br, .gris .x-btn-bc {
+        background-color: #949494;
+        color: #FFFFFF; 
+    }
+
+    .naranja button {
+        color: #FFFFFF;   
+        /*font-weight: bold;*/
+        height: 26px;
+        font-size: 12pt;
+    }
+    
+    .gris button {
+        color: #FFFFFF;   
+        font-weight: bold;
+    }
+    
+    .btnGris button {
+        height: 20px;
+    }
+    
+    .btnGris.x-btn-pressed button {
+        color: #666666;  
+        height: 20px;
+        font-weight: bold;
+    }
+    
+    .btnGris .x-btn-small .x-btn-text {
+        height: 26px;
+    }
+    
+    .linkNaranja button {
+        color: #F15F31; 
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 12pt;
+        text-align: right;
+    }
+    
+    .linkNaranja .x-btn-small .x-btn-text {
+        height: 26px;
+        font-size: 12pt;
+    }
+    
+    .naranja .x-btn-small .x-btn-text {
+        height: 26px;
+        font-size: 12pt;
+    }
+    
+    .naranja.x-item-disabled * {
+        color: rgb(255, 255, 255) !important;
+    }
+    
+    .btnHeader button {
+        color: #FFFFFF; 
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 8pt;
+        text-align: right;
+    }
+    
+    .btnHeader.x-btn-over .x-btn-text{
+        color: gray;   
+        font-weight: bold;
+    }
+
+    .btnHAyuda.x-btn-over button img{
+        background: url("../imagenes/mensajero/eme_ico_barra_superior_info_over.png") no-repeat scroll -0px -0px transparent !important;
+    }
+    .btnHCerrar.x-btn-over button img{
+        background: url("../imagenes/mensajero/eme_ico_barra_superior_x_over.png") no-repeat scroll -0px -0px transparent !important;
+    }
+
+    .azul button {
+        color: #FFFFFF;   
+        font-size: 12pt;
+    }
+    
+    .azul .x-btn-small .x-btn-text {
+        height: 26px;
+        font-size: 12pt;
+    }
+
+    .panelTituloMain button {
+        color: #FFFFFF;   
+        font-weight: bold;
+    }
+    
+    .btnIngresar .x-btn-mc button{
+        background-image: url("../imagenes/mensajero/eme_boton_ingresar_off.png");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .btnIngresar.x-btn-over .x-btn-mc button{
+        background-image: url("../imagenes/mensajero/eme_boton_ingresar_over.png");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .btnAgregarDireccion .x-btn-mc button{
+        background-image: url("../imagenes/mensajero/eme_boton_agregar_off.png");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .btnAgregarDireccion.x-btn-over .x-btn-mc button{
+        background-image: url("../imagenes/mensajero/eme_boton_agregar_over.png");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .btnSolicitarServ .x-btn-mc button{
+        background-image: url("../imagenes/mensajero/eme_boton_solicitar_off.png");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .btnSolicitarServ.x-btn-over .x-btn-mc button{
+        background-image: url("../imagenes/mensajero/eme_boton_solicitar_over.png");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    /*
+    .x-btn-over .x-btn-mc {        
+        background-color: #5c8cbe;
+    }
+    
+    .naranja.x-btn-over .x-btn-mc {        
+        background-color: #fed85b;
+    }*/
+
+    .labelGris {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 12pt;
+        color: #666666;   
+    }
+
+    .labelAzul {
+        color: #003770;   
+    }
+    
+    .labelNaranja {
+        color: #D35F37;  
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 16pt;
+    }
+
+    .menuCelusuper .x-panel-header {
+        background-image: none;
+        border-width: 0px;
+        color: gray;
+        font-weight: bold;
+        font-size: 12px;
+        background-color: #FFFFFF;
+    }
+
+    .menuCelusuper .x-panel-body {
+        border-width: 0px;
+    }
+
+    .x-tree3-el {
+        height: 25px;
+        color: gray;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    
+    .x-tree3-node-text {
+        color: gray;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .x-ftree2-selected {
+        background-color: #F0F0F0 !important;
+        color: #003770;
+    }
+    
+    .x-ftree2-selected .x-tree3-node-text{
+        color: #003770;
+    }
+    
+    .x-ftree2-node-over {
+        background-color: #003770;
+    }
+    
+    .x-ftree2-node-over .x-tree3-node-text{
+        color: #FFFFFF;
+    }
+    
+    .menulateral{
+        border-right-style: solid;
+        border-right-color: #818181;
+        border-right-width: 1px;
+    }
+    
+    .menulateral .x-panel-bwrap{
+        border-right: 1px solid rgb(129, 129, 129);
+    }
+    
+    
+    .menulateral .x-panel-mc {
+        border: 0px none;
+        padding: 0px 0px 0px;
+        margin: 0px;
+    }   
+    
+    .menulateral .x-panel-mr {
+        padding: 0px 0px 0px;
+    }   
+    
+    .menulateral hr{
+        border-color: #818181;
+    }
+    
+    .menuCelusuper button {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        color: gray;
+        font-size: 12pt;
+    }
+    
+    .menuCelusuper .x-btn-medium .x-btn-text {
+        height: 30px;
+    }
+    
+    .menuCelusuper .x-btn.primero {
+        border-top-style: solid;
+        border-top-color: #818181;
+        border-top-width: 1px;
+    }
+    
+    .menuCelusuper .x-btn {        
+        color: #818181;        
+        border-bottom-style: solid;
+        border-bottom-color: #818181;
+        border-bottom-width: 1px;
+    }
+    
+    .menuCelusuper .x-btn-pressed {
+        background-color: #DF3729 !important;
+        color: #ffffff;
+        border-bottom-style: solid;
+        border-bottom-color: #818181;
+        border-bottom-width: 1px;
+    }
+    
+    .menuCelusuper .x-btn-over {
+        background-color: #D35F37;
+        color: #FFFFFF;
+    }
+    
+    .menuCelusuper .x-btn-over .x-btn-mc {        
+        background-color: #D35F37;        
+    }
+    
+    .menuCelusuper .x-btn-over button {
+        color: #FFFFFF;
+    }
+    
+    .menuCelusuper .x-btn-pressed button {
+        color: #ffffff;        
+    }
+    
+    .menuCelusuper .x-btn-text{
+        text-align: left;
+        margin-left: 2px;
+    }
+    
+    .menuCelusuper .menu-servicio.x-btn-pressed button img{
+        background: url("../imagenes/mensajero/eme_ico_menu_solicitar_on.png") no-repeat scroll -0px -0px transparent !important;
+    }
+    
+    .menuCelusuper .menu-servicio.x-btn-over button img{
+        background: url("../imagenes/mensajero/eme_ico_menu_solicitar_over.png") no-repeat scroll -0px -0px transparent  !important;
+    }
+    
+    .menuCelusuper .menu-direccion.x-btn-pressed button img{
+        background: url("../imagenes/mensajero/eme_ico_menu_favorito_on.png") no-repeat scroll -0px -0px transparent !important;
+    }
+    
+    .menuCelusuper .menu-direccion.x-btn-over button img{
+        background: url("../imagenes/mensajero/eme_ico_menu_favorito_over.png") no-repeat scroll -0px -0px transparent  !important;
+    }
+    
+    .menuCelusuper .menu-historico.x-btn-pressed button img{
+        background: url("../imagenes/mensajero/eme_ico_menu_historico_on.png") no-repeat scroll -0px -0px transparent !important;
+    }
+    
+    .menuCelusuper .menu-historico.x-btn-over button img{
+        background: url("../imagenes/mensajero/eme_ico_menu_historico_over.png") no-repeat scroll -0px -0px transparent  !important;
+    }
+    
+    .menuCelusuper .menu-misdatos.x-btn-pressed button img{
+        background: url("../imagenes/mensajero/eme_ico_menu_datos_on.png") no-repeat scroll -0px -0px transparent !important;
+    }
+    
+    .menuCelusuper .menu-misdatos.x-btn-over button img{
+        background: url("../imagenes/mensajero/eme_ico_menu_datos_over.png") no-repeat scroll -0px -0px transparent  !important;
+    }
+    
+    .menuCelusuper .menu-chat.x-btn-pressed button img{
+        background: url("../imagenes/mensajero/eme_ico_menu_hable_on.png") no-repeat scroll -0px -0px transparent !important;
+    }
+    
+    .menuCelusuper .menu-chat.x-btn-over button img{
+        background: url("../imagenes/mensajero/eme_ico_menu_hable_over.png") no-repeat scroll -0px -0px transparent  !important;
+    }
+    
+    .menuCelusuper .x-btn-text img{
+        /*left: 178px !important;*/
+    }
+    
+    .x-grid3-header{
+        
+    }
+    
+    ul.listaErrores
+    {
+        padding: 0px;
+        margin: 0px 0px 0px 25px;
+        list-style-image: url( ../imagenes/iconos/vinetaError.gif );
+        list-style: list-style-image;
+        background: #FFF2F2;
+    }
+
+    .panelErrores
+    {
+        color: red;
+        font: 12pt 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        border: 1px solid red;
+        background: #FFF2F2;
+    }
+
+    .contenidoPanelErrores
+    {
+        background: #FFF2F2;
+        font: 12px 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        padding: 5px;
+        margin: 10px 10px 10px 10px;
+    }
+
+    .panelExito
+    {
+        color: green;
+        font: 12pt 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        text-align: center;
+        border: 1px solid green;
+        background: #CFF0D2;
+    }
+
+    .contenidoPanelExito
+    {
+        background: #CFF0D2;
+        font: 12pt 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        padding: 5px;
+        margin: 10px 10px 10px 10px;
+    }
+
+    
+    #images-view .thumb-wrap {
+        float: left;
+        margin: 4px 0px 4px 4px;
+        padding: 5px;
+        border: 1px solid white;
+    }
+    
+    #images-view2 .thumb-wrap {
+        float: left;
+        margin: 4px 0px 4px 4px;
+        padding: 5px;
+        border: 1px solid white;
+    }
+    
+    .x-form-item-label{
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 11pt;
+    }
+    
+    .x-form-label-right .x-column-inner{
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 300;
+        font-size: 11pt;
+        text-align: right;
+    }
+    
+    .fijot .x-panel-header {
+        background-image: none;
+        border: 1px solid #D0D0D0;
+        color: #FFFFFF;
+        background-color: #554488;
+    }
+    
+    .gwt-MenuBarPopup{
+        z-index:5; 
+    }
+    
+    .tituloMenu{
+        color: black;
+        border: 1px solid blue;
+        padding: 0px;
+        /*background-color: #adc2c6;*/
+    }
+}

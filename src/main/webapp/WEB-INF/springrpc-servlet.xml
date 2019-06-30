@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <context:annotation-config />
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="urlMap">
+            <map>
+                <entry key = "RPCAdminUsuarios">
+                    <ref bean="ServiceControllerAdminUsuarios" />
+                </entry>
+                <!--entry key = "RPCAdministracion2Usuarios">
+                    <ref bean="ServiceControllerUsuarios" />
+                </entry-->
+                <entry key = "RPCLogin">
+                    <ref bean="ServiceControllerLogin" />
+                </entry>
+                <entry key = "RPCRecuperarClave">
+                    <ref bean="ServiceControllerClave" />
+                </entry>
+                <entry key = "RPCAdminEmpresa">
+                    <ref bean="ServiceControllerEmpresa" />
+                </entry>
+                <entry key = "RPCAdminParqueadero">
+                    <ref bean="ServiceControllerParqueadero" />
+                </entry>
+                <entry key = "RPCAdminPais">
+                    <ref bean="ServiceControllerPais" />
+                </entry>
+                
+            </map>
+        </property>
+    </bean>
+    
+    
+    <bean id="ServiceControllerAdminUsuarios" class="net.joarchitectus.server.comm.ServletWrappingController">
+        <property name="servletName" value="RPCAdminUsuarios"/>    
+        <property name="servletInstance">
+            <ref bean="RPCAdminUsuarios"/>
+        </property>
+    </bean>
+    <!--bean id="ServiceControllerUsuarios" class="net.joarchitectus.server.comm.ServletWrappingController">
+        <property name="servletName" value="RPCAdministracion2Usuarios"/>    
+        <property name="servletInstance">
+            <ref bean="RPCAdministracion2Usuarios"/>
+        </property>
+    </bean-->
+    <bean id="ServiceControllerLogin" class="net.joarchitectus.server.comm.ServletWrappingController">
+        <property name="servletName" value="RPCLogin"/>    
+        <property name="servletInstance">
+            <ref bean="RPCLogin"/>
+        </property>
+    </bean>
+    <bean id="ServiceControllerClave" class="net.joarchitectus.server.comm.ServletWrappingController">
+        <property name="servletName" value="RPCRecuperarClave"/>    
+        <property name="servletInstance">
+            <ref bean="RPCRecuperarClave"/>
+        </property>
+    </bean>
+    <bean id="ServiceControllerEmpresa" class="net.joarchitectus.server.comm.ServletWrappingController">
+        <property name="servletName" value="RPCAdminEmpresa"/>    
+        <property name="servletInstance">
+            <ref bean="RPCAdminEmpresa"/>
+        </property>
+    </bean>
+    <bean id="ServiceControllerParqueadero" class="net.joarchitectus.server.comm.ServletWrappingController">
+        <property name="servletName" value="RPCAdminParqueadero"/>    
+        <property name="servletInstance">
+            <ref bean="RPCAdminParqueadero"/>
+        </property>
+    </bean>
+    <bean id="ServiceControllerPais" class="net.joarchitectus.server.comm.ServletWrappingController">
+        <property name="servletName" value="RPCAdminPais"/>    
+        <property name="servletInstance">
+            <ref bean="RPCAdminPais"/>
+        </property>
+    </bean>
+    
+        
+    
+    <bean id="RPCAdminUsuarios" class="net.joarchitectus.server.rpc.administracion.RPCAdminUsuariosImpl"> </bean>
+    <bean id="RPCAdminEmpresa" class="net.joarchitectus.server.rpc.administracion.RPCAdminEmpresaImpl"> </bean>
+    <bean id="RPCAdminParqueadero" class="net.joarchitectus.server.rpc.administracion.RPCAdminParqueaderoImpl"> </bean>
+    <bean id="RPCAdminPais" class="net.joarchitectus.server.rpc.administracion.RPCAdminPaisImpl"> </bean>
+    <!--bean id="RPCAdministracion2Usuarios" class="net.joarchitectus.server.rpc.administracion.RPCAdministracion2UsuariosImpl"> </bean-->
+    <bean id="RPCLogin" class="net.joarchitectus.server.rpc.usuario.RPCLoginImpl"> </bean>
+    <bean id="RPCRecuperarClave" class="net.joarchitectus.server.rpc.usuario.RPCRecuperarClaveImpl"> </bean>
+    
+
+</beans>

@@ -1,0 +1,403 @@
+/* 
+    Document   : principal
+    Created on : 20/03/2008, 10:02:53 PM
+    Author     : jdbotero
+    Description:
+*/
+@media screen
+{
+    /** Esto es para arreglar el problema de transparencia de los png en IE */
+    img { behavior: url( css/iepngfix.htc ); }
+
+    body
+    {
+        font: 12px verdana,arial;
+    }
+
+    h1
+    {
+        color: #555555; /*#0062BF;*/
+    }
+
+    h2
+    {
+        color: #CC60AB;
+    }
+
+    img.iconoAyudaTooltip
+    {
+        float: left;
+    }
+
+    table.combo
+    {
+        color: #666666;
+        font: inherit;
+        border-style: none;
+    }
+
+    /** Formato para tablas */
+    table.popUpMapa
+    {
+        color: #666666;
+        font: 10px verdana,arial;
+        border-collapse: collapse;
+        background: #FFFFFF;
+    }
+
+    table.popUpMapa th
+    {
+        vertical-align: middle;
+        /*background: url( ../imagenes/fondoTituloFormulario.jpg );*/
+        font: 8px verdana,arial;
+        font-weight: bold;
+        padding: 5px 10px 5px 10px;
+        color: #1C7EC9;
+        border: 1px solid #EEEEEE;
+    }
+
+    table.popUpMapa td
+    {
+        border: 1px solid #EEEEEE;
+        font: 8px verdana,arial;
+        padding: 5px 10px 5px 10px;
+    }
+
+    table.reporte
+    {
+        color: #666666;
+        font: inherit;
+        border-collapse: collapse;
+    }
+
+    table.reporte caption
+    {
+        font-size: 1.5em;
+        color: #008CED;
+        text-align: center;
+    }
+
+    table.reporte th
+    {
+        vertical-align: middle;
+        background: url( ../imagenes/fondoTituloFormulario.jpg );
+        font-weight: normal;
+        padding: 5px 10px 5px 10px;
+        color: #1C7EC9;
+        border: 1px solid #EEEEEE;
+    }
+
+    table.reporte td
+    {
+        border: 1px solid #EEEEEE;
+        padding: 5px 10px 5px 10px;
+    }
+
+    div.reporteEstadoBus
+    {
+        font:11px tahoma,arial,helvetica,sans-serif;
+        background: none repeat scroll 0 0 #EEEEEE; /*#F1F2FF;*/
+        border: 1px solid gray; /*#99BBE8;*/
+        color: #666666;
+        padding: 5px;
+    }
+
+    div.reporteEstadoBus span.label
+    {
+        margin-top: 5px;
+        color: #C0211B; /*#15428b;*/
+    }
+    div.reporteEstadoBus span.titulo2 p
+    {        
+        margin-top: 5px;
+        color: #FFFFFF; /*#15428b;*/
+        background-color: #C0211B;
+        border: 1px solid gray;
+        font-weight: bold;
+}
+
+    div.reporteEstadoBus span.errorReporte
+    {
+        margin-top: 5px;
+        color: red;
+    }
+
+    .contenedorPaneles
+    {
+        background: #F1F1F1;
+    }
+
+    .panelesAcceso
+    {
+        margin: 5px 5px 5px 5px;
+    }
+
+    .panelesGenerales
+    {
+        padding: 10px 10px 10px 10px;
+        margin: 1px 1px 1px 1px;
+        background: #DBDBDB; /* #dfe8f6;*/
+        border: 0px solid #DBDBDB; /* #dfe8f6;*/
+    }
+
+    ul.listaErrores
+    {
+        padding: 0px;
+        margin: 0px 0px 0px 25px;
+        list-style-image: url( ../imagenes/iconos/vinetaError.gif );
+        list-style: list-style-image;
+        background: #FFF2F2;
+    }
+
+    .panelErrores
+    {
+        color: red;
+        font: 12px verdana,arial;
+        border: 1px solid red;
+        background: #FFF2F2;
+        padding: 5px;
+    }
+
+    .contenidoPanelErrores
+    {
+        background: #FFF2F2;
+        font: 12px verdana,arial;
+        padding: 5px;
+        margin: 10px 10px 10px 10px;
+    }
+
+    .panelExito
+    {
+        color: green;
+        text-align: center;
+        border: 1px solid green;
+        background: #CFF0D2;
+    }
+
+    .contenidoPanelExito
+    {
+        background: #CFF0D2;
+        font: 12px verdana,arial;
+        padding: 5px;
+        margin: 10px 10px 10px 10px;
+    }
+
+    .panelInformativo
+    {
+        color: #666666; 
+        /*text-align: center;*/
+        border: 1px solid gray; /*#99BBE8;*/
+        background: #F1F1F1; /*DBDBDB;*/ /* #dfe8f6;*/
+        font: 12px verdana,arial;
+        padding: 2px;
+        margin: 0px 0px 3px 0px;
+    }
+    
+    .panelInformativo table
+    {
+        color: #666666;
+        text-align: center; 
+        font: 12px verdana,arial;
+    }
+
+    .contenidoPanelInformativo
+    {
+        background: #F1F1F1; /*DBDBDB;*/ /* #dfe8f6;*/
+        font: 12px verdana,arial;
+        padding: 2px;
+        margin: 0px 0px 10px 0px;
+    }
+
+    
+
+    .contenedorLogin
+    {
+        /*    margin: 10px auto 10px auto;*/
+        /*    background-image: url( ../imagenes/logoGrande.jpg ) !important;  */
+        background-color: white;
+    }
+    
+    .tabAcceso ul
+    {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+    }
+    
+
+    .iconoGeneralTabs
+    {
+        background-image: url( ../imagenes/iconos/iconoGeneralTabs.png ) !important;
+        background-position: center center;
+    }
+   
+
+    div#cabezote
+    {
+        width: 100%;
+        /*background-image: url( ../imagenes/barra.jpg );*/
+        background: gray;/*#194284;/*gray; /*#15428b;*/
+        font-size: 25px;
+        vertical-align: top;
+        color: #FFFFFF; /*#666666; /* #14428B; /*white;*/
+        font-weight: bold;
+        padding: 2px 0px 5px 20px;
+        margin: 0px;
+    }
+
+    /* Estilo para los valores que se muestran en el combo de selección de loterías */
+    .valorComboLoteria
+    {
+        font-style: italic;
+        color: #1C7EC9;
+    }
+
+    /* Estilo para los datos que se muestran de una lotería en el cuadro de datos de lotería */
+    .valorDatoLoteria
+    {
+        font-style: italic;
+        color: #1C7EC9; /*gray; /*#15428b;*/
+    }
+
+    /* Cargo del usuario en el combo de usuarios */
+    .cargoUsuario
+    {
+        font-style: italic;
+        color: red/*#1C7EC9;*/
+    }
+
+    /* Estilo para desplegar la empresa de una persona */
+    .empresaPersona
+    {
+        font-style: italic;
+        color: #1C7EC9;
+    }
+
+    .panelDatosUsuario
+    {
+        /**    background-image: url( ../imagenes/usuario.png );
+            background-repeat: no-repeat;
+            padding: 85px 0px 0px 0px;
+        */
+    }
+
+    .cuadroDatosUsuario
+    {
+        padding: 5px 5px 5px 5px;
+        margin: 0px 0px 0px 0px;
+
+        background: #EEEEEE; /*#F1F2FF;*/
+        color: #666666;
+        border: 1px solid gray; /*#99BBE8;*/
+
+        font-family: verdana arial;
+        font-size: 12px;
+        text-align: center;
+        width: 156px;
+    }
+
+    .gridNotas, .gridNotas.td
+    {
+        background: #FFFFBD;
+    }
+
+    .x-grid3-row td
+    {
+        border-left: 1px dotted #EEEEEE;
+    }
+
+    /* Estilo para el menú base del sistema */
+    .menuBase
+    {
+    }
+
+    .gwt-MenuBar
+    {
+        padding: 0px;
+        margin: 0px;
+        border: 1px solid gray; /*#99BBE8;*/
+        background: #EEEEEE; /*#F1F2FF;*/
+    }
+
+    .gwt-MenuBar .gwt-MenuItem
+    {
+        font: 12px verdana,arial;
+        background: #EEEEEE; /*#F1F2FF;*/
+        color: gray; /*#15428b;*/
+        padding: 2px 10px 3px 10px;
+        vertical-align: center;
+        cursor: pointer;
+        backgroud-image: url( ../imagenes/vinetaMenu.png );
+        width: 140px;
+    }
+
+    .gwt-MenuBar .gwt-MenuItem-selected
+    {
+        font: 12px verdana,arial;
+        background: #E1E1E1;
+        border: 1px solid gray; /*#99BBE8;*/
+        padding: 1px 10px 2px 9px;
+    }
+
+    .x-form-item label {
+        z-index: 0 !important;
+    }
+
+    /* Fuente de los grid, está por defecto en 11 px y se ve muy feo */
+    .x-grid3-hd-row td,
+    .x-grid3-row td,
+    .x-grid3-summary-row td,
+    .x-grid-group-hd div
+    {
+        font-size: 12px;
+    }
+
+    .panelesAutoValoreacionYAcuerdo
+    {
+        background: #AD0079;
+    }
+
+    .tabPanelCentral .x-tab-strip-bottom
+    {
+        display: none;
+    }
+
+    .labelResumen
+    {
+        color: #444444;
+    }
+    .elLogin
+    {
+        /*height: 850px;*/
+        background:url("../imagenes/backAplicativo.jpg");
+        background-color: #ffffff;
+        background-repeat: no-repeat;
+        background-position: top center;
+    }
+    .menuEncabezado
+    {
+        padding: 0px;
+        margin: 0px;
+        border: 1px solid gray; /*#99BBE8;*/
+        background: #a7d0ec;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .panelIzqMain{
+        background-color: #ffffff;
+    }
+    
+    .panelTituloMain{        
+        background-color: #3366ff;
+        background:url("../imagenes/barra2.jpg");        
+        color: white;
+}
+    form label{
+        text-align: right;
+    }
+    
+    form .gwt-Label{
+        text-align: right;
+    }
+}
