@@ -1,5 +1,5 @@
 {
-  "name": "Parqueando en Heroku: Java WAR",
-  "description": "ParqueandoServ",
+  "name": "Colombianismos en Heroku: Java WAR",
+  "description": "ColombianismosServ",
   "addons": [ "heroku-postgresql" ]
 }
