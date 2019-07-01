@@ -7,6 +7,8 @@ package net.joarchitectus.client.datos.dominio;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,6 +23,8 @@ import javax.persistence.Transient;
 @Table(name = "tipificador")
 public class Tipificador extends EntidadPerpetua{
     
+    public enum Tipo{MARCA_GRAMATICAL, MARCA_USO, MARCA_REGIONAL, FUENTE};
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,8 +32,9 @@ public class Tipificador extends EntidadPerpetua{
     @Column(name = "nombre", nullable = false, columnDefinition = "text")
     private String nombre;
     
+    @Enumerated(EnumType.STRING)
     @Column(name = "tipo", nullable = false, length = 150)
-    private String tipo;
+    private Tipo tipo;
 
     public Long getId() {
         return id;
@@ -47,11 +52,11 @@ public class Tipificador extends EntidadPerpetua{
         this.nombre = nombre;
     }
 
-    public String getTipo() {
+    public Tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
 
