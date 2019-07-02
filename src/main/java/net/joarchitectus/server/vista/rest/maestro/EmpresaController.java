@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * La descripcion de la clase va aqui.
+ * Controller spring tipo REST json para CRUD de empresas.
  *
  * @version 1.0 14-sep-2017
  * @author josorio
