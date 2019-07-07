@@ -1,0 +1,25 @@
+{
+	"total": 3,
+	"data": {
+		"id": 3,
+		"texto": "Abanico",
+		"sinonimos": [
+			{
+				"id": 100,
+				"texto": "China"
+			},
+                        {
+				"id": 201,
+				"texto": "Pepena"
+			},
+                        {
+				"id": 350,
+				"texto": "Sopladera"
+			},
+                        {
+				"id": 655,
+				"texto": "Ventiadora"
+			}
+		]
+	}
+}

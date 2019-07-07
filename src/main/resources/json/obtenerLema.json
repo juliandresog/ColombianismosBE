@@ -1,0 +1,21 @@
+{
+	"total": 1,
+	"data": {
+		"id": 1,
+		"texto": "Reblujo",
+		"sufijo": "",
+		"definiciones" : [
+			{
+				"id" : 10,
+				"definicion": "Gran cantidad de cosas desordenadas y dispersas en un sitio",
+				"ejemplo": "Mario, hagame el favor y arregla ese reblujo",
+				"marcas_gramaticales" : ["MASCULINO"],
+				"marcas_regionales": ["ANTIOQUIA", "CALDAS"],
+				"marcas_uso": ["INFORMAL"],
+				"fuentes": ["WEB"],
+				"frecuencia_uso": null
+			}
+		] 
+	}
+	
+}

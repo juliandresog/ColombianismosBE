@@ -1,0 +1,23 @@
+{
+	"total": 53,
+	"data": [
+		{
+			"id": 1,
+			"texto": "Reblujo",
+			"sufijo": "" 
+		},{
+			"id": 2,
+			"texto": "Reguero",
+			"sufijo": "" 
+		},{
+			"id": 3,
+			"texto": "Abanico",
+			"sufijo": "" 
+		},{
+			"id": 33,
+			"texto": "Abombado",
+			"sufijo": "da" 
+		}
+
+	]
+}
