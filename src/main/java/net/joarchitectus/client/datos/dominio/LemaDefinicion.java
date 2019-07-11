@@ -5,6 +5,7 @@
  */
 package net.joarchitectus.client.datos.dominio;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -32,6 +33,13 @@ public class LemaDefinicion {
     @MapsId("definicion_id")
     @JoinColumn(name = "definicion_id")
     private Definicion definicion;
+    
+    @Column(name = "ejemplo", nullable = true, columnDefinition = "text")
+    private String ejemplo;
+    
+    //pensado para guardar lista de regiones en formato json
+    @Column(name = "regiones", nullable = true, columnDefinition = "text")
+    private String regiones;
 
     public LemaDefinicionKey getId() {
         return id;
@@ -56,6 +64,23 @@ public class LemaDefinicion {
     public void setDefinicion(Definicion definicion) {
         this.definicion = definicion;
     }
+
+    public String getEjemplo() {
+        return ejemplo;
+    }
+
+    public void setEjemplo(String ejemplo) {
+        this.ejemplo = ejemplo;
+    }
+
+    public String getRegiones() {
+        return regiones;
+    }
+
+    public void setRegiones(String regiones) {
+        this.regiones = regiones;
+    }
+    
     
     
 }

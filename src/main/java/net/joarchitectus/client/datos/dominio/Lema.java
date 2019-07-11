@@ -35,6 +35,9 @@ public class Lema extends EntidadPerpetua{
     
     @Column(name = "sufijo", nullable = true, length = 100)
     private String sufijo;
+    
+    @Column(name = "genero", nullable = true)
+    private Character genero;
 
     public Long getId() {
         return id;
@@ -59,6 +62,16 @@ public class Lema extends EntidadPerpetua{
     public void setSufijo(String sufijo) {
         this.sufijo = sufijo;
     }
+
+    public Character getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Character genero) {
+        this.genero = genero;
+    }
+    
+    
 
     @Transient
     @Override
