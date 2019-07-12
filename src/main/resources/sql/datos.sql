@@ -1,8 +1,8 @@
-/**
- * Author:  josorio
- * Created: 9/07/2019
- * https://colombianismos.caroycuervo.gov.co/documentos/abreviaturas.pdf
- */
+--/**
+-- * Author:  josorio
+-- * Created: 9/07/2019
+-- * https://colombianismos.caroycuervo.gov.co/documentos/abreviaturas.pdf
+-- */
 insert into tipificador
 (nombre, tipo)
 values ('Cesar','MARCA_REGIONAL'),
@@ -84,21 +84,22 @@ values ('Cesar','MARCA_REGIONAL'),
 ('CORDE','FUENTE'),
 ('CORPES','FUENTE'),
 ('CREA','FUENTE'),
-('WEB','FUENTE'),
+('WEB','FUENTE');
 
-/**
- * Regiones de caro y cuervo
- * amazónico, antioqueño caldense, caucano valluno, cundiboyacense, llanero, nariñense, Pacífico, santandereano, tolimense huilense
- */
+--/**
+-- * Regiones de caro y cuervo
+-- * amazónico, antioqueño caldense, caucano valluno, cundiboyacense, llanero, nariñense, Pacífico, santandereano, tolimense huilense
+-- */
 
 insert into lema
 (texto, sufijo, genero)
 values ('Reblujo', '', 'm'),
 ('Reguero', '', 'm'),
+('rebrujo', '', 'm'),
 ('Abanico', '', 'm'),
 ('Abombado', 'da', null),
-('abombao', 'bá', null),
-('picho', 'cha', null),
+('Abombao', 'bá', null),
+('Picho', 'cha', null),
 ('China', '', 'f'),
 ('Pepena', '', 'f'),
 ('Sopladera', '', 'f'),
@@ -107,7 +108,143 @@ values ('Reblujo', '', 'm'),
 
 insert into definicion
 (definicion, ejemplo)
-values('Gran cantidad de cosas desordenadas y dispersas en un sitio', 'Mario, hagame el favor y arregla ese reblujo')
-('Utensilio liviano y flexible hecho con una pequeña estera de fibras vegetales, que se usa para avivar el fuego', null)
+values('Gran cantidad de cosas desordenadas y dispersas en un sitio', 'Mario, hagame el favor y arregla ese reblujo'),
+('Utensilio liviano y flexible hecho con una pequeña estera de fibras vegetales, que se usa para avivar el fuego', null),
 ('Referido a un líquido o a un alimento, que está descompuesto', null);
 
+--https://colombianismos.caroycuervo.gov.co/documentos/mapa_regiones_colombianismos.pdf
+
+insert into relacion_lema_definicion
+(lema_id, definicion_id, ejemplo, regiones)
+values(
+	(select id from lema where texto='Reblujo'),
+	(select id from definicion where definicion='Gran cantidad de cosas desordenadas y dispersas en un sitio'),
+	'Guardaba mi ropa doblada con celo compulsivo, animado diariamente por mi madre que me decía: "Mario, hágame el favor y arregla ese reblujo que hasta culebras debe haber ahí"',
+	'["Antioquia","Caldas"]'
+);
+
+insert into relacion_lema_definicion
+(lema_id, definicion_id, ejemplo, regiones)
+values(
+	(select id from lema where texto='rebrujo'),
+	(select id from definicion where definicion='Gran cantidad de cosas desordenadas y dispersas en un sitio'),
+	null,
+	'["Antioquia","Caldas"]'
+);
+
+insert into relacion_lema_definicion
+(lema_id, definicion_id, ejemplo, regiones)
+values(
+	(select id from lema where texto='Reguero'),
+	(select id from definicion where definicion='Gran cantidad de cosas desordenadas y dispersas en un sitio'),
+	null,
+	'["Antioquia","Caldas"]'
+);
+
+insert into relacion_lema_definicion
+(lema_id, definicion_id, ejemplo, regiones)
+values(
+	(select id from lema where texto='Abanico'),
+	(select id from definicion where definicion='Utensilio liviano y flexible hecho con una pequeña estera de fibras vegetales, que se usa para avivar el fuego'),
+	null,
+	'["Cundinamarca","Boyacá"]'
+);
+
+insert into relacion_lema_definicion
+(lema_id, definicion_id, ejemplo, regiones)
+values(
+	(select id from lema where texto='China'),
+	(select id from definicion where definicion='Utensilio liviano y flexible hecho con una pequeña estera de fibras vegetales, que se usa para avivar el fuego'),
+	null,
+	null
+);
+
+insert into relacion_lema_definicion
+(lema_id, definicion_id, ejemplo, regiones)
+values(
+	(select id from lema where texto='Pepena'),
+	(select id from definicion where definicion='Utensilio liviano y flexible hecho con una pequeña estera de fibras vegetales, que se usa para avivar el fuego'),
+	null,
+	'["Chocó","Valle del Cauca","Cauca","Nariño"]'
+);
+
+insert into relacion_lema_definicion
+(lema_id, definicion_id, ejemplo, regiones)
+values(
+	(select id from lema where texto='Sopladera'),
+	(select id from definicion where definicion='Utensilio liviano y flexible hecho con una pequeña estera de fibras vegetales, que se usa para avivar el fuego'),
+	'La sopladera es un elemento importante en el Tolima que todavía se aprecia entre las vendedoras de alimentos.',
+	null
+);
+
+insert into relacion_lema_definicion
+(lema_id, definicion_id, ejemplo, regiones)
+values(
+	(select id from lema where texto='Ventiadora'),
+	(select id from definicion where definicion='Utensilio liviano y flexible hecho con una pequeña estera de fibras vegetales, que se usa para avivar el fuego'),
+	null,
+	'["Caquetá","Putumayo","Amazonas","Vaupés","Guaviare","Guanía"]'
+);
+
+insert into relacion_lema_definicion
+(lema_id, definicion_id, ejemplo, regiones)
+values(
+	(select id from lema where texto='Abombado'),
+	(select id from definicion where definicion='Referido a un líquido o a un alimento, que está descompuesto'),
+	null,
+	'["Atlántico","Bolívar","Cesar", "Córdoba","La Guajira","Magdalena","Sucre"]'
+);
+
+insert into relacion_lema_definicion
+(lema_id, definicion_id, ejemplo, regiones)
+values(
+	(select id from lema where texto='Abombao'),
+	(select id from definicion where definicion='Referido a un líquido o a un alimento, que está descompuesto'),
+	null,
+	null
+);
+
+insert into relacion_lema_definicion
+(lema_id, definicion_id, ejemplo, regiones)
+values(
+	(select id from lema where texto='Picho'),
+	(select id from definicion where definicion='Referido a un líquido o a un alimento, que está descompuesto'),
+	'No pudimos usar los tomates para el guiso porque ya estaban pichos',
+	null
+);
+
+--https://colombianismos.caroycuervo.gov.co/documentos/abreviaturas.pdf
+insert into relacion_tipificador_definicion
+(definicion_id, tipificador_id)
+values(
+    (select id from definicion where definicion='Gran cantidad de cosas desordenadas y dispersas en un sitio'),
+    (select id from tipificador where nombre ='informal' )
+);
+
+insert into relacion_tipificador_definicion
+(definicion_id, tipificador_id)
+values(
+    (select id from definicion where definicion='Gran cantidad de cosas desordenadas y dispersas en un sitio'),
+    (select id from tipificador where nombre ='WEB' )
+);
+
+insert into relacion_tipificador_definicion
+(definicion_id, tipificador_id)
+values(
+    (select id from definicion where definicion='Referido a un líquido o a un alimento, que está descompuesto'),
+    (select id from tipificador where nombre ='informal' )
+);
+
+insert into relacion_tipificador_definicion
+(definicion_id, tipificador_id)
+values(
+    (select id from definicion where definicion='Referido a un líquido o a un alimento, que está descompuesto'),
+    (select id from tipificador where nombre ='adjetivo' )
+);
+
+insert into relacion_tipificador_definicion
+(definicion_id, tipificador_id)
+values(
+    (select id from definicion where definicion='Utensilio liviano y flexible hecho con una pequeña estera de fibras vegetales, que se usa para avivar el fuego'),
+    (select id from tipificador where nombre ='rural' )
+);
