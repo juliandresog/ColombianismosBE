@@ -193,6 +193,18 @@ public class ServicioMaestroImpl<T extends EntidadBase> implements ServicioMaest
             } else{
                 consulta.getOrden().add(new Pair(request.getParameter("SortField"), Orden.DESC));
             }
+        }else if (request.getAttribute("SortField")!=null) {
+            //necesito que cree los lefjoins de manera que pueda consultar datos de la tabla relacionada.
+            if (request.getAttribute("SortField").toString().contains(".") && !request.getAttribute("SortField").toString().contains(".id")) {// NOPMD - 
+                consulta.getAlias().add(new Pair<String, String>(
+                        request.getAttribute("SortField").toString().substring(0, request.getAttribute("SortField").toString().indexOf(".")),
+                        request.getAttribute("SortField").toString().substring(0, request.getAttribute("SortField").toString().indexOf("."))));
+            }
+            if (request.getAttribute("SortDir") == null || request.getAttribute("SortDir").equals(Orden.ASC)) {
+                consulta.getOrden().add(new Pair(request.getAttribute("SortField"), Orden.ASC));
+            } else{
+                consulta.getOrden().add(new Pair(request.getAttribute("SortField"), Orden.DESC));
+            }
         }
 
 //        try {
