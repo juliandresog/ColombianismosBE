@@ -5,6 +5,8 @@
 package net.joarchitectus.server.vista.rest.api;
 
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import net.joarchitectus.client.datos.dominio.Lema;
@@ -55,7 +57,7 @@ public class ColombianismosController {
         RespuestaRest<List<Lema>> retorno = new RespuestaRest<List<Lema>>();
 
         try {
-            log.debug("Petición de consulta buscarLemas {}", ColombianismosController.class.getSimpleName());
+            log.debug("Petición de consulta buscarLemas  {}", ColombianismosController.class.getSimpleName());
             
             request.setAttribute("campoFiltro", "texto");
             request.setAttribute("SortField", "texto");
@@ -68,6 +70,49 @@ public class ColombianismosController {
             retorno.setMessage("OK");
             
             return new ResponseEntity<RespuestaRest<List<Lema>>>(retorno, HttpStatus.OK);
+        } catch (RuntimeException e) {
+            log.error("Error", e);
+            retorno.setSuccess(false);
+            retorno.setMessage("Error en tiempo de ejecución en el servidor");
+            return new ResponseEntity(retorno, HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception e) {
+            log.error("Error", e);
+            retorno.setSuccess(false);
+            retorno.setMessage("Error inesperado en el servidor");
+            return new ResponseEntity(retorno, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    
+    /**
+     * Lista los sinonimos de un lema especifico
+     * @param request
+     * @param response
+     * @param idLema
+     * @return 
+     */
+    @RequestMapping(method = {RequestMethod.GET}, value = "/buscarSinonimos/{idLema}")
+    public ResponseEntity<RespuestaRest<Map>> buscarSinonimos(
+            ServletRequest request, ServletResponse response,
+            @PathVariable Long idLema
+    ) {
+        RespuestaRest<Map> retorno = new RespuestaRest<Map>();
+
+        try {
+            log.debug("Petición de consulta buscarSinonimos  {}", ColombianismosController.class.getSimpleName());            
+            
+            Map sinonimos = servicioLema.buscarSinonimos(idLema);
+            
+            retorno.setSuccess(true);
+            retorno.setData(sinonimos);
+            retorno.setTotal(1);
+            retorno.setMessage("OK");
+            
+            return new ResponseEntity<RespuestaRest<Map>>(retorno, HttpStatus.OK);
+        } catch (NoSuchElementException e){
+            log.warn("Alerta", e);
+            retorno.setSuccess(false);
+            retorno.setMessage(e.getMessage());
+            return new ResponseEntity(retorno, HttpStatus.NOT_FOUND);
         } catch (RuntimeException e) {
             log.error("Error", e);
             retorno.setSuccess(false);
