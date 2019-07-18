@@ -27,4 +27,11 @@ public interface ServicioLema extends ServicioMaestro<Lema>{
      */
     public Map buscarSinonimos(Long idLema);
 
+    /**
+     * Retorna las definiciones un lema o palabra
+     * @param idLema
+     * @return 
+     */
+    public Map obtenerLema(Long idLema);
+
 }
