@@ -17,11 +17,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.AbstractJsonpResponseBodyAdvice;
 
 /**
  * La descripcion de la clase va aqui.
@@ -29,6 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0 12/07/2019
  * @author josorio
  */
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/colombianismos")
 public class ColombianismosController {
@@ -36,6 +40,13 @@ public class ColombianismosController {
     private static org.slf4j.Logger log = LoggerFactory.getLogger(ColombianismosController.class);
     @Autowired
     private ServicioLema servicioLema;
+    
+//    @ControllerAdvice esto esta deprecado y es mejor usar CORS
+//    static class JsonpAdvice extends AbstractJsonpResponseBodyAdvice {
+//        public JsonpAdvice() {
+//            super("callback");
+//        }
+//    }
 
     /**
      * Lista los lemas existentes en BD
