@@ -84,7 +84,7 @@ public class TestEmpresaController {
         //creo una sesion con un usuario autenticado
         this.mockMvc.perform(post("/login/loginMail.json")
             //.session(mockSession)    
-            .param("email", "desarrollo@joarchitectus.net")
+            .param("email", "admin@colombianismos.net")
             .param("clave", "123"))
             .andExpect(status().isOk())
             .andDo(new ResultHandler() {

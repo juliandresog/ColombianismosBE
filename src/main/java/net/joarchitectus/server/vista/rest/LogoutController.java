@@ -33,26 +33,26 @@ public class LogoutController
         session.invalidate();
         
         // Direcciono a la url en sessión
-        String url = "redirect:/";
+        String url = "redirect:/acceso/index.html";
         return url;
     }
     
-    /**
-     * Provisional
-     * @param request
-     * @return 
-     */
-    @Deprecated
-    @RequestMapping(value = "/login/loginMail", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView login(HttpServletRequest request)
-    {
-        usuarioSession.resetear();
-        usuarioSession.setId(10000l);
-        usuarioSession.setNombres("Algo");
-        usuarioSession.setCorreoElectronico(request.getParameter("email"));
-        
-        ModelAndView retorno = new ModelAndView();
-        retorno.addObject("success", true);
-        return retorno;
-    }
+//    /**
+//     * Provisional
+//     * @param request
+//     * @return 
+//     */
+//    @Deprecated
+//    @RequestMapping(value = "/login/loginMail", method = {RequestMethod.GET, RequestMethod.POST})
+//    public ModelAndView login(HttpServletRequest request)
+//    {
+//        usuarioSession.resetear();
+//        usuarioSession.setId(10000l);
+//        usuarioSession.setNombres("Algo");
+//        usuarioSession.setCorreoElectronico(request.getParameter("email"));
+//        
+//        ModelAndView retorno = new ModelAndView();
+//        retorno.addObject("success", true);
+//        return retorno;
+//    }
 }

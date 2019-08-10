@@ -74,9 +74,9 @@ public class Bootstrap implements InitializingBean {
             Usuarios usuarioAdmin = new Usuarios();
             usuarioAdmin.setDocumento("admin");
             usuarioAdmin.setClave(Cifrado.getStringMessageDigest("123", Cifrado.SHA256));
-            usuarioAdmin.setCorreoElectronico("admin@boosit.com");
+            usuarioAdmin.setCorreoElectronico("admin@colombianismos.net");
             usuarioAdmin.setNombres("Administrador");
-            usuarioAdmin.setApellidos("Boos");
+            usuarioAdmin.setApellidos("JOArchitectus");
             usuarioAdmin.setInactivo(Boolean.FALSE);
             //Rol administrador
             usuarioAdmin.setRol(admin);
