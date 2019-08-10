@@ -7,6 +7,7 @@ package net.joarchitectus.server.servicios;
 
 import javax.servlet.ServletRequest;
 import net.joarchitectus.client.datos.dominio.Usuarios;
+import net.joarchitectus.server.vista.rest.api.RespuestaRest;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -47,4 +48,14 @@ public interface ServicioSesion {
      * @return 
      */
     public Usuarios validarSesion(ServletRequest request, ModelAndView retorno, Usuarios usuarioSession);
+    
+    /**
+     * Para validar sesion desde un controller.
+     *
+     * @param request
+     * @param retorno
+     * @param usuarioSession
+     * @return
+     */
+    public Usuarios validarSesion(ServletRequest request, RespuestaRest<?> retorno, Usuarios usuarioSession);
 }

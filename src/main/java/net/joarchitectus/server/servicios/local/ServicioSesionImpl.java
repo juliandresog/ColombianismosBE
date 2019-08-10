@@ -12,6 +12,7 @@ import net.joarchitectus.client.util.Sumador;
 import net.joarchitectus.server.datos.dao.DaoSmartphoneUser;
 import net.joarchitectus.server.datos.dao.DaoUsuario;
 import net.joarchitectus.server.servicios.ServicioSesion;
+import net.joarchitectus.server.vista.rest.api.RespuestaRest;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -89,6 +90,7 @@ public class ServicioSesionImpl implements ServicioSesion {
      * @param retorno
      * @return valida session y retorna un usuario en caso de que exista de lo contrario null
      */
+    @Override
     public Usuarios validarSesion(ServletRequest request, ModelAndView retorno, Usuarios usuarioSession){
         if (sessionInActiva(usuarioSession)) {
             if (request.getParameter("token") == null) {
@@ -107,6 +109,39 @@ public class ServicioSesionImpl implements ServicioSesion {
                 }
             }
         }else{
+            return usuarioSession;
+        }
+    }
+    
+    /**
+     *
+     * @param request
+     * @param retorno
+     * @return valida session y retorna un usuario en caso de que exista de lo
+     * contrario null
+     */
+    @Override
+    public Usuarios validarSesion(ServletRequest request, RespuestaRest<?> retorno, Usuarios usuarioSession) {
+        if (sessionInActiva(usuarioSession)) {
+            if (request.getParameter("token") == null) {
+                retorno.setSuccess(false);
+                retorno.setMessage("No tiene una sesión activa");
+                return null;
+            } else {
+                Usuarios userWS = validarTokenU(request.getParameter("token"));
+                if (userWS == null) {
+                    retorno.setSuccess(false);
+                    retorno.setMessage("No tiene una sesión activa");
+                    return null;
+                } else {
+                    //Indico al usuario cuales son los roles y permisos de este
+                    //servicioPermisosYRoles.alimentarRolesPermisosUsuario(usuarioSession);
+                    //copio datos
+                    usuarioSession.copiarDatos(userWS);
+                    return usuarioSession;
+                }
+            }
+        } else {
             return usuarioSession;
         }
     }
