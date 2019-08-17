@@ -52,7 +52,7 @@ public class EmpresaRestController extends MaestroRestController<Empresa> {
      * Constructor Acá puedo cambiar variables si lo necesito como "campoFiltro"
      */
     public EmpresaRestController() {
-        log2.debug("Se contruye maestro " + this.getClass().getSimpleName());
+        log2.debug("Se construye  {}", this.getClass().getSimpleName());
     }
 
 //    /**

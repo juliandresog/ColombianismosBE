@@ -41,4 +41,12 @@ public class DefinicionController extends MaestroRestController<Definicion> {
         super.setUsuarioSession(usuarioSession);
     }
     
+    /**
+     * Constructor Acá puedo cambiar variables si lo necesito como "campoFiltro"
+     */
+    public DefinicionController() {
+        log2.debug("Se construye {}", this.getClass().getSimpleName());
+        campoFiltro = "definicion";
+    }
+    
 }

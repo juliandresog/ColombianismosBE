@@ -5,9 +5,9 @@
  */
 package net.joarchitectus.server.vista.rest.api;
 
-import net.joarchitectus.client.datos.dominio.Lema;
+import net.joarchitectus.client.datos.dominio.Tipificador;
 import net.joarchitectus.client.datos.dominio.Usuarios;
-import net.joarchitectus.server.servicios.maestro.ServicioLema;
+import net.joarchitectus.server.servicios.maestro.ServicioTipificador;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,20 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @author josorio
  */
 @RestController
-@RequestMapping("/admin/lema")
-public class LemaController extends MaestroRestController<Lema> {
+@RequestMapping("/admin/tipificador")
+public class TipificadorController extends MaestroRestController<Tipificador> {
 
     /* Un comentario sobre la implementacion de esta clase podria ir aqui. */
-    private ServicioLema servicioLema;
+    private ServicioTipificador servicioTipificador;
 
     private Usuarios usuarioSession;
 
-    protected static org.slf4j.Logger log2 = LoggerFactory.getLogger(LemaController.class);
+    protected static org.slf4j.Logger log2 = LoggerFactory.getLogger(TipificadorController.class);
 
     @Autowired
-    public void setServicioAdminLema(ServicioLema servicioLema) {
-        this.servicioLema = servicioLema;
-        super.setServicioMaestro(servicioLema);
+    public void setServicioAdminTipificador(ServicioTipificador servicioTipificador) {
+        this.servicioTipificador = servicioTipificador;
+        super.setServicioMaestro(servicioTipificador);
     }
 
     @Autowired
@@ -44,9 +44,10 @@ public class LemaController extends MaestroRestController<Lema> {
     /**
      * Constructor Acá puedo cambiar variables si lo necesito como "campoFiltro"
      */
-    public LemaController() {
+    public TipificadorController() {
         log2.debug("Se construye {}", this.getClass().getSimpleName());
-        campoFiltro = "texto";
+        //campoFiltro = "nombre"; es el mismo de pordefecto
     }
+    
     
 }
