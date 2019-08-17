@@ -48,7 +48,7 @@ public class PropiedadesLenguage {
 
             ResourceBundle messages;
             messages
-                    = ResourceBundle.getBundle("net.joarchitectus/client/aplI18n/Main", locale);
+                    = ResourceBundle.getBundle("net/joarchitectus/client/aplI18n/Main", locale);
 
             return messages.getString(clave);
 
@@ -81,7 +81,7 @@ public class PropiedadesLenguage {
         try {
             ResourceBundle messages;
             messages
-                    = ResourceBundle.getBundle("net.joarchitectus/client/aplI18n/Main", locale);
+                    = ResourceBundle.getBundle("net/joarchitectus/client/aplI18n/Main", locale);
 
             return reemplazarComodines(parametros, messages.getString(clave));
 

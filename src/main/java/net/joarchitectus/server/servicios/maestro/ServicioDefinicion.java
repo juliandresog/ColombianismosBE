@@ -6,11 +6,20 @@
 package net.joarchitectus.server.servicios.maestro;
 
 import net.joarchitectus.client.datos.dominio.Definicion;
+import net.joarchitectus.client.datos.model.DefinicionModel;
+import net.joarchitectus.client.entidades.RespuestaRPC;
 
 /**
  *
  * @author josorio
  */
 public interface ServicioDefinicion extends ServicioMaestro<Definicion>{
+
+    /**
+     * Guardar definicion en BD
+     * @param model
+     * @return 
+     */
+    public RespuestaRPC<Definicion> guardarDefinicion(DefinicionModel model);
     
 }

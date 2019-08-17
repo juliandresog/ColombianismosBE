@@ -36,6 +36,15 @@ public class Tipificador extends EntidadPerpetua{
     @Column(name = "tipo", nullable = false, length = 150)
     private Tipo tipo;
 
+    public Tipificador() {
+    }
+
+    public Tipificador(Long id) {
+        this.id = id;
+    }
+    
+    
+
     public Long getId() {
         return id;
     }

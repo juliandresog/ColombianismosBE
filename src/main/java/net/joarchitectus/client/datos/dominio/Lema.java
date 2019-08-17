@@ -39,6 +39,14 @@ public class Lema extends EntidadPerpetua{
     @Column(name = "genero", nullable = true)
     private Character genero;
 
+    public Lema() {
+    }
+
+    public Lema(Long id) {
+        this.id = id;
+    }   
+    
+
     public Long getId() {
         return id;
     }

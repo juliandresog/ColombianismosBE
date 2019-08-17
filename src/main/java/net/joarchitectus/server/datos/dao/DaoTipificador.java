@@ -5,6 +5,7 @@
  */
 package net.joarchitectus.server.datos.dao;
 
+import java.util.List;
 import net.joarchitectus.client.datos.dominio.Tipificador;
 
 /**
@@ -12,5 +13,12 @@ import net.joarchitectus.client.datos.dominio.Tipificador;
  * @author josorio
  */
 public interface DaoTipificador extends DaoGenerico<Tipificador> {
+
+    /**
+     * Retorna registros segun sus ids
+     * @param ids
+     * @return 
+     */
+    public List<Tipificador> buscarRegistros(List<Long> ids);
     
 }
