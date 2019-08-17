@@ -76,8 +76,8 @@ public class ServicioDefinicionImpl extends ServicioMaestroImpl<Definicion> impl
             daoDefinicion.guardar(entidad);
 
             //borro lo que habia antes si es que estoy editando
-            //daoLema.ejecutarUpdateDelete("delete from relacion_lema_definicion where definicion_id = " + entidad.getId());
-            //daoDefinicion.ejecutarUpdateDelete("delete from relacion_tipificador_definicion where definicion_id = " + entidad.getId());            
+            daoLema.ejecutarUpdateDelete("delete from relacion_lema_definicion where definicion_id = " + entidad.getId());
+            daoDefinicion.ejecutarUpdateDelete("delete from relacion_tipificador_definicion where definicion_id = " + entidad.getId());            
             
             if (model.getLemas() != null && !model.getLemas().isEmpty()) {                
 
@@ -170,6 +170,26 @@ public class ServicioDefinicionImpl extends ServicioMaestroImpl<Definicion> impl
             retorno.setResultado(RespuestaRPC.RESULTADO_EXCEPCION_SERVER);
         }
         return retorno;
+    }
+
+    @Override
+    public DefinicionModel obtenerDefinicion(Long id) throws Exception {
+        Definicion definicion = daoDefinicion.getById(id);
+        if(definicion==null){
+            return null;
+        }else{
+           DefinicionModel modelo = (DefinicionModel)ModeloConverter.convertirEntidadToModelo(definicion, new DefinicionModel(), false);
+           List<Long> lemas = daoDefinicion.getIDsLemas(id);
+           modelo.setLemas(lemas);
+           List<Long> marcasGramaticales =  daoDefinicion.getIDsMarcasGramaticales(id);
+           modelo.setMarcaGramatical(marcasGramaticales);
+           List<Long> marcasUso =  daoDefinicion.getIDsMarcasUso(id);
+           modelo.setMarcaUso(marcasUso);
+           List<Long> marcasRegionales =  daoDefinicion.getIDsMarcasRegionales(id);
+           modelo.setMarcaRegional(marcasRegionales);
+           
+           return modelo;
+        }
     }
 
 }

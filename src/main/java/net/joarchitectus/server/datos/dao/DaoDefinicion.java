@@ -5,6 +5,7 @@
  */
 package net.joarchitectus.server.datos.dao;
 
+import java.util.List;
 import net.joarchitectus.client.datos.dominio.Definicion;
 import net.joarchitectus.client.datos.dominio.LemaDefinicion;
 import net.joarchitectus.client.datos.dominio.TipificadorDefinicion;
@@ -26,5 +27,33 @@ public interface DaoDefinicion extends DaoGenerico<Definicion> {
      * @param tipDef 
      */
     public void guardar(TipificadorDefinicion tipDef);
+
+    /**
+     * IDs de lemas asociadas a la definicion
+     * @param idDefinicion
+     * @return 
+     */
+    public List<Long> getIDsLemas(Long idDefinicion);
+
+    /**
+     * IDs de marcas gramaticales asociadas a la definicion
+     * @param idDefinicion
+     * @return 
+     */
+    public List<Long> getIDsMarcasGramaticales(Long idDefinicion);
+
+    /**
+     * IDs de marcas de uso asociadas a la definicion
+     * @param idDefinicion
+     * @return 
+     */
+    public List<Long> getIDsMarcasUso(Long idDefinicion);
+
+    /**
+     * IDs de marcas regionales asociadas a la definicion
+     * @param idDefinicion
+     * @return 
+     */
+    public List<Long> getIDsMarcasRegionales(Long idDefinicion);
     
 }

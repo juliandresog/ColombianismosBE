@@ -21,5 +21,13 @@ public interface ServicioDefinicion extends ServicioMaestro<Definicion>{
      * @return 
      */
     public RespuestaRPC<Definicion> guardarDefinicion(DefinicionModel model);
+
+    /**
+     * Obtener datos completos de una definicion
+     * @param id
+     * @return 
+     * @throws java.lang.Exception 
+     */
+    public DefinicionModel obtenerDefinicion(Long id) throws Exception ;
     
 }

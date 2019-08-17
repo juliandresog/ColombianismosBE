@@ -423,6 +423,8 @@ public class DaoGenericoImpl<T> implements DaoGenerico<T> {
                 query.setCalendar(parametro.getA(), (Calendar) parametro.getB());
             } else if (parametro.getB() instanceof Collection) {
                 query.setParameterList(parametro.getA(), (Collection) parametro.getB());
+            } else{
+                query.setParameter(parametro.getA(), parametro.getB());
             }
 
         }
